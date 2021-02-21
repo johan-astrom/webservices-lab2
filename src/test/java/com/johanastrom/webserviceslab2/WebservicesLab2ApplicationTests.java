@@ -19,7 +19,6 @@ class WebservicesLab2ApplicationTests {
     @LocalServerPort
     private int port;
 
-    // TODO: 2021-02-21 Lägg  till application.properties i test
     @Test
     void contextLoads() {
         var result = testClient.getForEntity("http://localhost:" + port + "/authors", Author[].class);
