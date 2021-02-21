@@ -22,31 +22,31 @@ public class Controller {
     }
 
     @GetMapping("/authors")
-    public List<AuthorRecord> getAllAuthors(){
+    public List<AuthorRecord> getAllAuthors() {
         return authorIntermediary.getAllAuthors();
     }
 
     @GetMapping("/authors/{id}")
-    public AuthorRecord getOneAuthor(@PathVariable int id){
-        return authorIntermediary.getOneAuthor(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
-                "Author with id <" + id + "> not found."));
+    public AuthorRecord getOneAuthor(@PathVariable int id) {
+        return authorIntermediary.getOneAuthor(id).orElseThrow(() ->
+                new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
     }
 
     @PostMapping("/authors")
     @ResponseStatus(HttpStatus.CREATED)
-    public AuthorRecord createAuthor(@RequestBody AuthorRecord authorRecord){
-        return authorIntermediary.createAuthor(authorRecord).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.CONFLICT, "Author already persisted to database."));
+    public AuthorRecord createAuthor(@RequestBody AuthorRecord authorRecord) {
+        return authorIntermediary.createAuthor(authorRecord).orElseThrow(() ->
+                new ResponseStatusException(HttpStatus.CONFLICT, "Author already persisted to database."));
     }
 
     @PutMapping("/authors/{id}")
-    public AuthorRecord replaceAuthor(@PathVariable int id, @RequestBody AuthorRecord authorRecord){
+    public AuthorRecord replaceAuthor(@PathVariable int id, @RequestBody AuthorRecord authorRecord) {
         return authorIntermediary.replace(id, authorRecord).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
     }
 
     @PatchMapping("/authors/{id}")
-    public AuthorRecord updateAuthor(@PathVariable int id, @RequestBody AuthorName authorName){
+    public AuthorRecord updateAuthor(@PathVariable int id, @RequestBody AuthorName authorName) {
         return authorIntermediary.update(id, authorName).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
     }

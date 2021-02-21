@@ -63,8 +63,12 @@ public class AuthorIntermediary {
         Optional<Author> author = authorRepository.findById(id);
         if (author.isPresent()){
             Author updatedAuthor = author.get();
-            updatedAuthor.setFirstName(authorName.firstName());
-            updatedAuthor.setLastName(authorName.lastName());
+            if (authorName.firstName()!=null) {
+                updatedAuthor.setFirstName(authorName.firstName());
+            }
+            if (authorName.lastName()!=null) {
+                updatedAuthor.setLastName(authorName.lastName());
+            }
             return Optional.of(authorToDto.map(authorRepository.save(updatedAuthor)));
         }
         return Optional.empty();
