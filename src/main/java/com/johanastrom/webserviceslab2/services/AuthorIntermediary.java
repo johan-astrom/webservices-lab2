@@ -52,6 +52,7 @@ public class AuthorIntermediary {
         return Optional.empty();
     }
 
+    // TODO: 2021-02-21 Lägg till andra update
     public Optional<AuthorRecord> update(int id, AuthorName authorName){
         Optional<Author> author = authorRepository.findById(id);
         if (author.isPresent()){
@@ -60,7 +61,6 @@ public class AuthorIntermediary {
             updatedAuthor.setLastName(authorName.lastName());
             return Optional.of(authorToDto.map(authorRepository.save(updatedAuthor)));
         }
-        //Gör koll och kasta exception i Controller class.
         return Optional.empty();
     }
 
