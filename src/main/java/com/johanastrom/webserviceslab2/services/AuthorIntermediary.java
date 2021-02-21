@@ -38,17 +38,17 @@ public class AuthorIntermediary {
         return authorToDto.map(authorRepository.save(authorToDto.map(authorRecord)));
     }
 
-    public AuthorRecord replace(int id, AuthorRecord authorRecord){
+    public Optional<AuthorRecord> replace(int id, AuthorRecord authorRecord){
         Optional<Author> author = authorRepository.findById(id);
         if (author.isPresent()){
             Author updatedAuthor = author.get();
             updatedAuthor.setFirstName(authorRecord.firstName());
             updatedAuthor.setLastName(authorRecord.lastName());
             updatedAuthor.setBirthDate(authorRecord.birthDate());
-            return authorToDto.map(authorRepository.save(updatedAuthor));
+            AuthorRecord updatedAuthorRecord = authorToDto.map(authorRepository.save(updatedAuthor));
+            return Optional.of(updatedAuthorRecord);
         }
-        //Gör koll och kasta exception i Controller class.
-        return null;
+        return Optional.empty();
     }
 
     public Optional<AuthorRecord> update(int id, AuthorName authorName){
