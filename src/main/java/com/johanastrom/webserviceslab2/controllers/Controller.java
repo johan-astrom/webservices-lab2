@@ -47,13 +47,13 @@ public class Controller {
     }
 
     @PutMapping("/authors/{id}")
-    public AuthorRecord replaceAuthor(@PathVariable int id, AuthorRecord authorRecord){
+    public AuthorRecord replaceAuthor(@PathVariable int id, @RequestBody AuthorRecord authorRecord){
         return authorIntermediary.replace(id, authorRecord).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
     }
 
     @PatchMapping("/authors/{id}")
-    public AuthorRecord replaceAuthor(@PathVariable int id, @RequestBody AuthorName authorName){
+    public AuthorRecord updateAuthor(@PathVariable int id, @RequestBody AuthorName authorName){
         return authorIntermediary.update(id, authorName).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
     }
