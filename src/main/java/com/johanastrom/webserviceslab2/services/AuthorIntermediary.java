@@ -34,6 +34,7 @@ public class AuthorIntermediary {
         return authorToDto.map(authorRepository.findById(id));
     }
 
+    //Ändra till optional, orElseThrow i Controller.
     public AuthorRecord createAuthor(AuthorRecord authorRecord){
         return authorToDto.map(authorRepository.save(authorToDto.map(authorRecord)));
     }

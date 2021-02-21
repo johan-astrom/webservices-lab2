@@ -1,4 +1,7 @@
 package com.johanastrom.webserviceslab2.dtos;
 
-public record AuthorName(String firstName, String lastName) {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record AuthorName(@JsonProperty String firstName,
+                         @JsonProperty String lastName) {
 }

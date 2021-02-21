@@ -1,5 +1,6 @@
 package com.johanastrom.webserviceslab2.controllers;
 
+import com.johanastrom.webserviceslab2.dtos.AuthorBirthDate;
 import com.johanastrom.webserviceslab2.dtos.AuthorName;
 import com.johanastrom.webserviceslab2.dtos.AuthorRecord;
 import com.johanastrom.webserviceslab2.entities.Author;
@@ -56,5 +57,11 @@ public class Controller {
         return authorIntermediary.update(id, authorName).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
     }
+
+    /*@PatchMapping("/authors/{id}")
+    public AuthorRecord replaceAuthor(@PathVariable int id, @RequestBody AuthorBirthDate authorBirthDate){
+        return authorIntermediary.update(id, authorBirthDate).orElseThrow(() ->
+                new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
+    }*/
 
 }
