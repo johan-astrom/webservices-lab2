@@ -24,7 +24,6 @@ class WebservicesLab2ApplicationTests {
         var result = testClient.getForEntity("http://localhost:" + port + "/authors", Author[].class);
         assertThat(result.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(result.getBody().length).isGreaterThan(0);
-
     }
 
 }
