@@ -1,10 +1,7 @@
 package com.johanastrom.webserviceslab2.controllers;
 
-import com.johanastrom.webserviceslab2.dtos.AuthorBirthDate;
 import com.johanastrom.webserviceslab2.dtos.AuthorName;
 import com.johanastrom.webserviceslab2.dtos.AuthorRecord;
-import com.johanastrom.webserviceslab2.entities.Author;
-import com.johanastrom.webserviceslab2.repositories.AuthorRepository;
 import com.johanastrom.webserviceslab2.services.AuthorIntermediary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,12 +35,8 @@ public class Controller {
     @PostMapping("/authors")
     @ResponseStatus(HttpStatus.CREATED)
     public AuthorRecord createAuthor(@RequestBody AuthorRecord authorRecord){
-        for (AuthorRecord persistedAuthor : authorIntermediary.getAllAuthors()) {
-            if (persistedAuthor.equals(authorRecord)){
-                throw new ResponseStatusException(HttpStatus.CONFLICT, "Author already persisted to database.");
-            }
-        }
-        return authorIntermediary.createAuthor(authorRecord);
+        return authorIntermediary.createAuthor(authorRecord).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.CONFLICT, "Author already persisted to database."));
     }
 
     @PutMapping("/authors/{id}")
