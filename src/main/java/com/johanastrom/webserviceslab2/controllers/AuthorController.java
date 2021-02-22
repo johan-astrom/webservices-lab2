@@ -3,6 +3,7 @@ package com.johanastrom.webserviceslab2.controllers;
 import com.johanastrom.webserviceslab2.dtos.AuthorPersonalData;
 import com.johanastrom.webserviceslab2.dtos.AuthorRecord;
 import com.johanastrom.webserviceslab2.services.AuthorIntermediary;
+import com.johanastrom.webserviceslab2.services.IntermediaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,47 +14,41 @@ import java.util.List;
 @RestController
 public class AuthorController {
 
-    private AuthorIntermediary authorIntermediary;
+    private IntermediaryService intermediaryService;
 
     @Autowired
-    public AuthorController(AuthorIntermediary authorIntermediary) {
-        this.authorIntermediary = authorIntermediary;
+    public AuthorController(IntermediaryService intermediaryService) {
+        this.intermediaryService = intermediaryService;
     }
 
     @GetMapping("/authors")
     public List<AuthorRecord> getAllAuthors() {
-        return authorIntermediary.getAllAuthors();
+        return intermediaryService.getAllAuthors();
     }
 
     @GetMapping("/authors/{id}")
     public AuthorRecord getOneAuthor(@PathVariable int id) {
-        return authorIntermediary.getOneAuthor(id).orElseThrow(() ->
+        return intermediaryService.getOneAuthor(id).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
     }
 
     @PostMapping("/authors")
     @ResponseStatus(HttpStatus.CREATED)
     public AuthorRecord createAuthor(@RequestBody AuthorRecord authorRecord) {
-        return authorIntermediary.createAuthor(authorRecord).orElseThrow(() ->
+        return intermediaryService.createAuthor(authorRecord).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.CONFLICT, "Author already persisted to database."));
     }
 
     @PutMapping("/authors/{id}")
     public AuthorRecord replaceAuthor(@PathVariable int id, @RequestBody AuthorRecord authorRecord) {
-        return authorIntermediary.replace(id, authorRecord).orElseThrow(() ->
+        return intermediaryService.replace(id, authorRecord).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
     }
 
     @PatchMapping("/authors/{id}")
     public AuthorRecord updateAuthor(@PathVariable int id, @RequestBody AuthorPersonalData authorPersonalData) {
-        return authorIntermediary.update(id, authorPersonalData).orElseThrow(() ->
+        return intermediaryService.update(id, authorPersonalData).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
     }
-
-    /*@PatchMapping("/authors/{id}")
-    public AuthorRecord replaceAuthor(@PathVariable int id, @RequestBody AuthorBirthDate authorBirthDate){
-        return authorIntermediary.update(id, authorBirthDate).orElseThrow(() ->
-                new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
-    }*/
 
 }
