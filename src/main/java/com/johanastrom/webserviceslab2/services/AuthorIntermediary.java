@@ -1,7 +1,6 @@
 package com.johanastrom.webserviceslab2.services;
 
-import com.johanastrom.webserviceslab2.dtos.AuthorBirthDate;
-import com.johanastrom.webserviceslab2.dtos.AuthorName;
+import com.johanastrom.webserviceslab2.dtos.AuthorPersonalData;
 import com.johanastrom.webserviceslab2.dtos.AuthorRecord;
 import com.johanastrom.webserviceslab2.entities.Author;
 import com.johanastrom.webserviceslab2.mappers.AuthorToDto;
@@ -62,32 +61,22 @@ public class AuthorIntermediary implements IntermediaryService {
         return Optional.empty();
     }
 
-    // TODO: 2021-02-21 Lägg till andra update
-    @Override
-    public Optional<AuthorRecord> update(int id, AuthorName authorName){
+    public Optional<AuthorRecord> update(int id, AuthorPersonalData authorPersonalData){
         Optional<Author> author = authorRepository.findById(id);
         if (author.isPresent()){
             Author updatedAuthor = author.get();
-            if (authorName.firstName()!=null) {
-                updatedAuthor.setFirstName(authorName.firstName());
+            if (authorPersonalData.firstName()!=null) {
+                updatedAuthor.setFirstName(authorPersonalData.firstName());
             }
-            if (authorName.lastName()!=null) {
-                updatedAuthor.setLastName(authorName.lastName());
+            if (authorPersonalData.lastName()!=null) {
+                updatedAuthor.setLastName(authorPersonalData.lastName());
+            }
+            if (authorPersonalData.birthDate()!=null){
+                updatedAuthor.setBirthDate(authorPersonalData.birthDate());
             }
             return Optional.of(authorToDto.map(authorRepository.save(updatedAuthor)));
         }
         return Optional.empty();
     }
 
-    @Override
-    public Optional<AuthorRecord> update(int id, AuthorBirthDate authorBirthDate){
-        Optional<Author> author = authorRepository.findById(id);
-        if (author.isPresent()){
-            Author updatedAuthor = author.get();
-            updatedAuthor.setBirthDate(authorBirthDate.birthDate());
-            return Optional.of(authorToDto.map(authorRepository.save(updatedAuthor)));
-        }
-        //Gör koll och kasta exception i Controller class.
-        return Optional.empty();
-    }
 }

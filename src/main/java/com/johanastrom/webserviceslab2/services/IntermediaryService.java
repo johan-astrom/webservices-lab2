@@ -1,7 +1,6 @@
 package com.johanastrom.webserviceslab2.services;
 
-import com.johanastrom.webserviceslab2.dtos.AuthorBirthDate;
-import com.johanastrom.webserviceslab2.dtos.AuthorName;
+import com.johanastrom.webserviceslab2.dtos.AuthorPersonalData;
 import com.johanastrom.webserviceslab2.dtos.AuthorRecord;
 
 import java.util.List;
@@ -16,7 +15,6 @@ public interface IntermediaryService {
 
     Optional<AuthorRecord> replace(int id, AuthorRecord authorRecord);
 
-    Optional<AuthorRecord> update(int id, AuthorName authorName);
+    Optional<AuthorRecord> update(int id, AuthorPersonalData authorPersonalData);
 
-    Optional<AuthorRecord> update(int id, AuthorBirthDate authorBirthDate);
 }

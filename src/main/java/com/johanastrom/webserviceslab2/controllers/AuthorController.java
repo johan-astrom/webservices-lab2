@@ -1,6 +1,6 @@
 package com.johanastrom.webserviceslab2.controllers;
 
-import com.johanastrom.webserviceslab2.dtos.AuthorName;
+import com.johanastrom.webserviceslab2.dtos.AuthorPersonalData;
 import com.johanastrom.webserviceslab2.dtos.AuthorRecord;
 import com.johanastrom.webserviceslab2.services.AuthorIntermediary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class AuthorController {
@@ -46,8 +45,8 @@ public class AuthorController {
     }
 
     @PatchMapping("/authors/{id}")
-    public AuthorRecord updateAuthor(@PathVariable int id, @RequestBody AuthorName authorName) {
-        return authorIntermediary.update(id, authorName).orElseThrow(() ->
+    public AuthorRecord updateAuthor(@PathVariable int id, @RequestBody AuthorPersonalData authorPersonalData) {
+        return authorIntermediary.update(id, authorPersonalData).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
     }
 
