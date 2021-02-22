@@ -11,6 +11,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+// TODO: 2021-02-22 Hittas inte i Consul, ändra ev variabeln i appl.prop?
 @RestController
 public class AuthorController {
 
