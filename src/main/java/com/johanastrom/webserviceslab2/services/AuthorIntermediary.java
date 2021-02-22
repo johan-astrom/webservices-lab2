@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AuthorIntermediary {
+public class AuthorIntermediary implements IntermediaryService {
 
     private AuthorToDto authorToDto;
     private AuthorRepository authorRepository;
@@ -26,14 +26,17 @@ public class AuthorIntermediary {
     }
 
 
+    @Override
     public List<AuthorRecord> getAllAuthors(){
         return authorToDto.map(authorRepository.findAll());
     }
 
+    @Override
     public Optional<AuthorRecord> getOneAuthor(int id){
         return authorToDto.map(authorRepository.findById(id));
     }
 
+    @Override
     public Optional<AuthorRecord> createAuthor(AuthorRecord authorRecord){
         for (AuthorRecord author : getAllAuthors()){
             if (authorRecord.equals(author)){
@@ -45,6 +48,7 @@ public class AuthorIntermediary {
 
     }
 
+    @Override
     public Optional<AuthorRecord> replace(int id, AuthorRecord authorRecord){
         Optional<Author> author = authorRepository.findById(id);
         if (author.isPresent()){
@@ -59,6 +63,7 @@ public class AuthorIntermediary {
     }
 
     // TODO: 2021-02-21 Lägg till andra update
+    @Override
     public Optional<AuthorRecord> update(int id, AuthorName authorName){
         Optional<Author> author = authorRepository.findById(id);
         if (author.isPresent()){
@@ -74,6 +79,7 @@ public class AuthorIntermediary {
         return Optional.empty();
     }
 
+    @Override
     public Optional<AuthorRecord> update(int id, AuthorBirthDate authorBirthDate){
         Optional<Author> author = authorRepository.findById(id);
         if (author.isPresent()){

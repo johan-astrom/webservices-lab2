@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class Controller {
+public class AuthorController {
 
     private AuthorIntermediary authorIntermediary;
 
     @Autowired
-    public Controller(AuthorIntermediary authorIntermediary) {
+    public AuthorController(AuthorIntermediary authorIntermediary) {
         this.authorIntermediary = authorIntermediary;
     }
 
