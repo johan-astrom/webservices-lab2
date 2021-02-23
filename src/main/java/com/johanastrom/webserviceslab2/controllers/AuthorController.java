@@ -22,7 +22,7 @@ public class AuthorController {
         this.intermediaryService = intermediaryService;
     }
 
-    @GetMapping//("/authors")
+    @GetMapping
     public List<AuthorRecord> getAllAuthors() {
         return intermediaryService.getAllAuthors();
     }
@@ -33,7 +33,7 @@ public class AuthorController {
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
     }
 
-    @PostMapping//("/authors")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public AuthorRecord createAuthor(@RequestBody AuthorRecord authorRecord) {
         return intermediaryService.createAuthor(authorRecord).orElseThrow(() ->
