@@ -17,4 +17,6 @@ public interface IntermediaryService {
 
     Optional<AuthorRecord> update(int id, AuthorPersonalData authorPersonalData);
 
+    void delete(int id);
+
 }

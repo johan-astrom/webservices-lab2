@@ -5,6 +5,7 @@ import com.johanastrom.webserviceslab2.dtos.AuthorRecord;
 import com.johanastrom.webserviceslab2.services.AuthorIntermediary;
 import com.johanastrom.webserviceslab2.services.IntermediaryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -50,6 +51,15 @@ public class AuthorController {
     public AuthorRecord updateAuthor(@PathVariable int id, @RequestBody AuthorPersonalData authorPersonalData) {
         return intermediaryService.update(id, authorPersonalData).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found."));
+    }
+
+    @DeleteMapping("/{id}")
+    public void removeAuthor(@PathVariable int id) {
+        try {
+            intermediaryService.delete(id);
+        } catch (DataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id <" + id + "> not found.");
+        }
     }
 
 }

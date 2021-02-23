@@ -37,4 +37,9 @@ public class TestIntermediary implements IntermediaryService {
     public Optional<AuthorRecord> update(int id, AuthorPersonalData authorPersonalData) {
         return Optional.empty();
     }
+
+    @Override
+    public void delete(int id) {
+
+    }
 }

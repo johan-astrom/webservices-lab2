@@ -79,4 +79,9 @@ public class AuthorIntermediary implements IntermediaryService {
         return Optional.empty();
     }
 
+    @Override
+    public void delete(int id) {
+        authorRepository.deleteById(id);
+    }
+
 }
