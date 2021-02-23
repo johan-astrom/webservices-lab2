@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.johanastrom</groupId>
-    <artifactId>webservices-lab2</artifactId>
+    <artifactId>authors-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>webservices-lab2</name>
     <description>Lab assignment 2 for course web services</description>
