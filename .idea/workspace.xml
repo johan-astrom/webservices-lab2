@@ -6,27 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1ca00bc1-89c2-4d46-9cf5-5fdf67092dcf" name="Default Changelist" comment="Added deletion method to AuthorController">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/authors/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/authors/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/authors/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/authors/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johanastrom/webserviceslab2/WebservicesLab2Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/main/java/com/johanastrom/webserviceslab2/WebservicesLab2Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johanastrom/webserviceslab2/controllers/AuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/main/java/com/johanastrom/webserviceslab2/controllers/AuthorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johanastrom/webserviceslab2/dtos/AuthorPersonalData.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/main/java/com/johanastrom/webserviceslab2/dtos/AuthorPersonalData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johanastrom/webserviceslab2/dtos/AuthorRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/main/java/com/johanastrom/webserviceslab2/dtos/AuthorRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johanastrom/webserviceslab2/entities/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/main/java/com/johanastrom/webserviceslab2/entities/Author.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johanastrom/webserviceslab2/mappers/AuthorToDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/main/java/com/johanastrom/webserviceslab2/mappers/AuthorToDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johanastrom/webserviceslab2/repositories/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/main/java/com/johanastrom/webserviceslab2/repositories/AuthorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johanastrom/webserviceslab2/services/AuthorIntermediary.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/main/java/com/johanastrom/webserviceslab2/services/AuthorIntermediary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johanastrom/webserviceslab2/services/IntermediaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/main/java/com/johanastrom/webserviceslab2/services/IntermediaryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/johanastrom/webserviceslab2/WebservicesLab2ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/test/java/com/johanastrom/webserviceslab2/WebservicesLab2ApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/johanastrom/webserviceslab2/controllers/AuthorControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/test/java/com/johanastrom/webserviceslab2/controllers/AuthorControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/johanastrom/webserviceslab2/controllers/MvcTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/test/java/com/johanastrom/webserviceslab2/controllers/MvcTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/johanastrom/webserviceslab2/controllers/TestIntermediary.java" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/test/java/com/johanastrom/webserviceslab2/controllers/TestIntermediary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/authors/src/test/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +153,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614072596717</updated>
-      <workItem from="1614072601227" duration="6531000" />
+      <workItem from="1614072601227" duration="6873000" />
     </task>
     <task id="LOCAL−00001" summary="Lade till @RequestMapping i AuthorController">
       <created>1614083773884</created>
